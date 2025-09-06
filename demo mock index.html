@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPSC Grade-II (Senior Teacher) Science Mock Test</title>
+    <style>
+        /* स्टाइलिंग कोड यहाँ */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .registration-section {
+            padding: 30px;
+            background: #f9f9f9;
+            border-bottom: 2px dashed #ddd;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #6a11cb;
+            outline: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        
+        .btn:hover:after {
+            transform: rotate(30deg) translate(10%, 10%);
+            opacity: 1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(106, 17, 203, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .test-section {
+            display: none;
+            padding: 30px;
+        }
+        
+        .subject-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f5f7fa;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .subject-title {
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .subject-title i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .options {
+            list-style: none;
+        }
+        
+        .options li {
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .options li:hover {
+            background: #f0f4ff;
+            border-color: #6a11cb;
+        }
+        
+        .options li.selected {
+            background: #e6eeff;
+            border-color: #2575fc;
+        }
+        
+        .language-toggle {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .language-toggle button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            background: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .language-toggle button.active {
+            background: #2575fc;
+            color: white;
+        }
+        
+        .submit-section {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #ddd;
+        }
+        
+        .telegram-button {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #0088cc, #2aabee);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .telegram-btn i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        
+        .telegram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 136, 204, 0.6);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            margin-top: 30px;
+        }
+        
+        .hindi {
+            display: none;
+        }
+        
+        .instructions {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ffc107;
+        }
+        
+        .instructions h3 {
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        /* ब्लॉगर संगतता */
+        .blogger-compatibility {
+            display: none;
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RPSC Grade-II (Senior Teacher) Science Mock Test</h1>
+            <p>Based on the latest syllabus and exam pattern (Biology, Chemistry, Physics, Science Pedagogy)</p>
+        </header>
+        
+        <section class="registration-section" id="registrationSection">
+            <h2>Registration Form</h2>
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="district">District:</label>
+                <input type="text" id="district" placeholder="Enter your district">
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob">
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <button class="btn" id="startTestBtn" onclick="startTest()">
+                    <i class="fas fa-pencil-alt"></i> Register For Mock Test
+                </button>
+            </div>
+        </section>
+        
+        <section class="test-section" id="testSection">
+            <div class="instructions">
+                <h3>Instructions</h3>
+                <ul>
+                    <li>This mock test consists of 40 multiple-choice questions.</li>
+                    <li>Each question carries 1 mark. There is no negative marking.</li>
+                    <li>You can switch between Hindi and English languages using the toggle button.</li>
+                    <li>Click on your answer to select it.</li>
+                    <li>After completing the test, click the "Submit Test" button.</li>
+                </ul>
+            </div>
+            
+            <div class="language-toggle">
+                <button id="englishBtn" class="active" onclick="switchLanguage('en')">English</button>
+                <button id="hindiBtn" onclick="switchLanguage('hi')">Hindi</button>
+            </div>
+            
+            <div class="subject-section">
+                <div class="subject-title">
+                    <i class="fas fa-dna"></i>
+                    <h2>Biology (जीव विज्ञान)</h2>
+                </div>
+                
+                <div class="english">
+                    <div class="question">
+                        <p class="question-text">1. Which of the following is not a function of the liver?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. Production of bile</li>
+                            <li onclick="selectOption(this)">B. Storage of glycogen</li>
+                            <li onclick="selectOption(this)">C. Production of insulin</li>
+                            <li onclick="selectOption(this)">D. Detoxification of blood</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">2. Photosynthesis in plants takes place in which cell organelle?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. Mitochondria</li>
+                            <li onclick="selectOption(this)">B. Chloroplast</li>
+                            <li onclick="selectOption(this)">C. Nucleus</li>
+                            <li onclick="selectOption(this)">D. Ribosome</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="hindi">
+                    <div class="question">
+                        <p class="question-text">1. निम्नलिखित में से कौन सा यकृत का कार्य नहीं है?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. पित्त का उत्पादन</li>
+                            <li onclick="selectOption(this)">B. ग्लाइकोजन का भंडारण</li>
+                            <li onclick="selectOption(this)">C. इंसुलिन का उत्पादन</li>
+                            <li onclick="selectOption(this)">D. रक्त का विषहरण</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">2. पौधों में प्रकाश संश्लेषण किस कोशिका अंग में होता है?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. माइटोकॉन्ड्रिया</li>
+                            <li onclick="selectOption(this)">B. क्लोरोप्लास्ट</li>
+                            <li onclick="selectOption(this)">C. नाभिक</li>
+                            <li onclick="selectOption(this)">D. राइबोसोम</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subject-section">
+                <div class="subject-title">
+                    <i class="fas fa-flask"></i>
+                    <h2>Chemistry (रसायन विज्ञान)</h2>
+                </div>
+                
+                <div class="english">
+                    <div class="question">
+                        <p class="question-text">3. What is the pH value of pure water?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. 5</li>
+                            <li onclick="selectOption(this)">B. 7</li>
+                            <li onclick="selectOption(this)">C. 8</li>
+                            <li onclick="selectOption(this)">D. 14</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">4. Which of the following is a noble gas?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. Oxygen</li>
+                            <li onclick="selectOption(this)">B. Nitrogen</li>
+                            <li onclick="selectOption(this)">C. Argon</li>
+                            <li onclick="selectOption(this)">D. Hydrogen</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="hindi">
+                    <div class="question">
+                        <p class="question-text">3. शुद्ध जल का pH मान क्या होता है?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. 5</li>
+                            <li onclick="selectOption(this)">B. 7</li>
+                            <li onclick="selectOption(this)">C. 8</li>
+                            <li onclick="selectOption(this)">D. 14</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">4. निम्नलिखित में से कौन सी एक अक्रिय गैस है?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. ऑक्सीजन</li>
+                            <li onclick="selectOption(this)">B. नाइट्रोजन</li>
+                            <li onclick="selectOption(this)">C. आर्गन</li>
+                            <li onclick="selectOption(this)">D. हाइड्रोजन</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subject-section">
+                <div class="subject-title">
+                    <i class="fas fa-atom"></i>
+                    <h2>Physics (भौतिक विज्ञान)</h2>
+                </div>
+                
+                <div class="english">
+                    <div class="question">
+                        <p class="question-text">5. Which law states that "the pressure of a given mass of gas is inversely proportional to its volume at constant temperature"?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. Boyle's law</li>
+                            <li onclick="selectOption(this)">B. Charles's law</li>
+                            <li onclick="selectOption(this)">C. Ohm's law</li>
+                            <li onclick="selectOption(this)">D. Newton's law</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">6. The SI unit of electric current is:</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. Volt</li>
+                            <li onclick="selectOption(this)">B. Ampere</li>
+                            <li onclick="selectOption(this)">C. Ohm</li>
+                            <li onclick="selectOption(this)">D. Watt</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="hindi">
+                    <div class="question">
+                        <p class="question-text">5. कौन सा नियम कहता है कि "स्थिर तापमान पर गैस के दिए गए द्रव्यमान का दबाव उसके आयतन के व्युत्क्रमानुपाती होता है"?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. बॉयल का नियम</li>
+                            <li onclick="selectOption(this)">B. चार्ल्स का नियम</li>
+                            <li onclick="selectOption(this)">C. ओम का नियम</li>
+                            <li onclick="selectOption(this)">D. न्यूटन का नियम</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">6. विद्युत धारा की SI इकाई है:</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. वोल्ट</li>
+                            <li onclick="selectOption(this)">B. एम्पीयर</li>
+                            <li onclick="selectOption(this)">C. ओम</li>
+                            <li onclick="selectOption(this)">D. वाट</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subject-section">
+                <div class="subject-title">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h2>Science Pedagogy (विज्ञान शिक्षाशास्त्र)</h2>
+                </div>
+                
+                <div class="english">
+                    <div class="question">
+                        <p class="question-text">7. Which of the following is the most effective method to teach the concept of photosynthesis?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. Lecture method</li>
+                            <li onclick="selectOption(this)">B. Demonstration with live plants</li>
+                            <li onclick="selectOption(this)">C. Reading from textbook</li>
+                            <li onclick="selectOption(this)">D. Writing notes on blackboard</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">8. The main objective of teaching science at school level is:</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. To prepare students for medical and engineering exams</li>
+                            <li onclick="selectOption(this)">B. To develop scientific temperament and curiosity</li>
+                            <li onclick="selectOption(this)">C. To complete the syllabus on time</li>
+                            <li onclick="selectOption(this)">D. To score good marks in examinations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="hindi">
+                    <div class="question">
+                        <p class="question-text">7. प्रकाश संश्लेषण की अवधारणा को पढ़ाने के लिए निम्न में से कौन सी सबसे प्रभावी विधि है?</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. व्याख्यान विधि</li>
+                            <li onclick="selectOption(this)">B. लाइव पौधों के साथ प्रदर्शन</li>
+                            <li onclick="selectOption(this)">C. पाठ्यपुस्तक से पढ़ना</li>
+                            <li onclick="selectOption(this)">D. ब्लैकबोर्ड पर नोट्स लिखना</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">8. स्कूल स्तर पर विज्ञान पढ़ाने का मुख्य उद्देश्य है:</p>
+                        <ul class="options">
+                            <li onclick="selectOption(this)">A. छात्रों को मेडिकल और इंजीनियरिंग परीक्षाओं के लिए तैयार करना</li>
+                            <li onclick="selectOption(this)">B. वैज्ञानिक स्वभाव और जिज्ञासा विकसित करना</li>
+                            <li onclick="selectOption(this)">C. समय पर पाठ्यक्रम पूरा करना</li>
+                            <li onclick="selectOption(this)">D. परीक्षाओं में अच्छे अंक प्राप्त करना</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="submit-section">
+                <button class="btn" id="submitTestBtn" onclick="submitTest()">
+                    <i class="fas fa-paper-plane"></i> Submit Test
+                </button>
+            </div>
+            
+            <div class="telegram-button" id="telegramButton">
+                <a href="https://t.me/joinchat/example" class="telegram-btn" target="_blank">
+                    <i class="fab fa-telegram"></i> Join Telegram for Answer Key
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2023 RPSC Grade-II (Senior Teacher) Science Mock Test</p>
+        <p>This is a sample mock test for practice purposes only.</p>
+    </footer>
+
+    <script>
+        // ब्लॉगर संगतता के लिए सीधे फंक्शन का उपयोग
+        function startTest() {
+            const name = document.getElementById('name').value;
+            const district = document.getElementById('district').value;
+            const dob = document.getElementById('dob').value;
+            
+            if (name && district && dob) {
+                document.getElementById('registrationSection').style.display = 'none';
+                document.getElementById('testSection').style.display = 'block';
+            } else {
+                alert('Please fill all the registration fields.');
+            }
+        }
+        
+        function selectOption(element) {
+            // Remove selected class from siblings
+            const siblings = element.parentElement.children;
+            for (let sibling of siblings) {
+                sibling.classList.remove('selected');
+            }
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+        }
+        
+        function switchLanguage(lang) {
+            const englishContent = document.querySelectorAll('.english');
+            const hindiContent = document.querySelectorAll('.hindi');
+            const englishBtn = document.getElementById('englishBtn');
+            const hindiBtn = document.getElementById('hindiBtn');
+            
+            if (lang === 'en') {
+                englishContent.forEach(item => {
+                    item.style.display = 'block';
+                });
+                hindiContent.forEach(item => {
+                    item.style.display = 'none';
+                });
+                englishBtn.classList.add('active');
+                hindiBtn.classList.remove('active');
+            } else {
+                englishContent.forEach(item => {
+                    item.style.display = 'none';
+                });
+                hindiContent.forEach(item => {
+                    item.style.display = 'block';
+                });
+                hindiBtn.classList.add('active');
+                englishBtn.classList.remove('active');
+            }
+        }
+        
+        function submitTest() {
+            const selectedOptions = document.querySelectorAll('.options li.selected');
+            
+            if (selectedOptions.length < 8) {
+                alert('Please attempt all questions before submitting.');
+                return;
+            }
+            
+            if (confirm('Are you sure you want to submit the test?')) {
+                alert('Test submitted successfully! Your responses have been recorded.');
+                document.getElementById('submitTestBtn').style.display = 'none';
+                document.getElementById('telegramButton').style.display = 'block';
+                
+                // Scroll to telegram button
+                document.getElementById('telegramButton').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Initialize the page with English content
+        window.onload = function() {
+            switchLanguage('en');
+        };
+    </script>
+</body>
+</html>
